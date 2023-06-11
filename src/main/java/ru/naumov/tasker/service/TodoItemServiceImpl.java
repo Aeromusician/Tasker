@@ -1,8 +1,5 @@
 package ru.naumov.tasker.service;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.naumov.tasker.model.TodoItem;
@@ -12,7 +9,6 @@ import java.time.Instant;
 import java.util.Optional;
 
 @Service
-
 public class TodoItemServiceImpl implements TodoItemService {
     @Autowired
     private TodoItemRepository repository;
@@ -36,5 +32,4 @@ public class TodoItemServiceImpl implements TodoItemService {
     public void delete(TodoItem item) {
         repository.delete(item);
     }
-
 }

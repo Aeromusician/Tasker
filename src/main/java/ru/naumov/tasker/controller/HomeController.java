@@ -17,5 +17,4 @@ public class HomeController {
         modelAndView.addObject("todoItems", service.getAllTodoItem());
         return modelAndView;
     }
-
 }
