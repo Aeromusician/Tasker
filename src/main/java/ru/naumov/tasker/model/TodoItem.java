@@ -1,6 +1,7 @@
 package ru.naumov.tasker.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,9 +15,13 @@ import java.time.Instant;
 public class TodoItem implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "todo_seq",
+            sequenceName = "todo_seq",
+            initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "todo_seq")
     private Long id;
 
+    @NotBlank(message = "Description is required")
     private String description;
 
     private Boolean isComplete;
